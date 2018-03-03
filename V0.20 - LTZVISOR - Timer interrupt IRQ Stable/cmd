@@ -1,0 +1,1 @@
+export PATH=$PATH:/home/andersen/opt/gcc-arm-none-eabi/bin
