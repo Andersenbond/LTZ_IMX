@@ -70,26 +70,8 @@ ltz_monitor:
  .global im_here
  .global smc_handler
  smc_handler:
-
-      push {r0-r3}				            @ R0-r3 contain args to be passed between worlds
-    //  bl im_here
-
-
-
-    /*  cps   #Mode_MON
-      mrc p15, 0, r0, c1, c1, 0				@ Read Secure Configuration Register data
-      orr r0, r0, #NS_BIT						  @ Set NS bit
-      orr	r0, r0, #SCR_FIQ_BIT        @ Disable FIQ
-      mcr p15, 0, r0, c1, c1, 0				@ Write Secure Configuration Register data
-*/
-    //  cps   #Mode_SVC
-
-    /*  push {r0-r3, lr}
-      mov r0, lr
-      bl show_regs
-      pop {r0-r3, lr}*/
-
-      @ Which world have we come from
+     push {r0-r3}				            @ R0-r3 contain args to be passed between worlds
+     @ Which world have we come from
      @ -----------------------------------------------------------------------------
      ldr  r0, =S_STACK_SP		        @ Load save to pointer
      ldr  r1, =NS_STACK_SP           @ Load restore from pointer
